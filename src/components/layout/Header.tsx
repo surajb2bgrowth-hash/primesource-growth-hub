@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import logoLight from '@/assets/logo-light.png';
+import logoDark from '@/assets/logo-dark.png';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -13,6 +15,7 @@ const navItems = [
     children: [
       { label: 'Workforce Solutions', href: '/services#workforce' },
       { label: 'Technology Services', href: '/services#technology' },
+      { label: 'Business Automation', href: '/services#automation' },
       { label: 'Marketing & Growth', href: '/services#marketing' },
     ]
   },
@@ -50,16 +53,12 @@ export default function Header() {
       <div className="container-custom">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">P</span>
-            </div>
-            <span className={cn(
-              "font-display font-bold text-xl transition-colors",
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            )}>
-              PrimeSource
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={isScrolled ? logoLight : logoDark} 
+              alt="PrimeSource IT Consulting" 
+              className="h-10 md:h-12 w-auto transition-all duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}

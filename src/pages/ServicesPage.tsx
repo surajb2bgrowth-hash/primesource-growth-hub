@@ -1,12 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ArrowRight, Users, UserCheck, FileCheck, Code, Smartphone, Palette, Target, Linkedin, Video, PenTool, Share2, Search, BarChart3 } from 'lucide-react';
+import { ArrowRight, Users, UserCheck, FileCheck, Code, Smartphone, Palette, Target, Linkedin, Video, PenTool, Share2, Search, BarChart3, Cog, Workflow, GitMerge, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import staffingImg from '@/assets/staffing-solutions.jpg';
 import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
+import automationImg from '@/assets/business-automation.jpg';
 
 const workforceServices = [
   {
@@ -47,6 +48,27 @@ const technologyServices = [
     title: 'UI/UX Design',
     description: 'Intuitive interfaces and seamless user experiences that convert.',
     benefits: ['User research & testing', 'Wireframes & prototypes', 'Design systems', 'Accessibility compliance'],
+  },
+];
+
+const automationServices = [
+  {
+    icon: Cog,
+    title: 'Process Automation',
+    description: 'Automate repetitive tasks and manual processes to save time and reduce errors.',
+    benefits: ['Task automation', 'Error reduction', 'Time savings', 'Cost efficiency'],
+  },
+  {
+    icon: Workflow,
+    title: 'Workflow Optimization',
+    description: 'Streamline business workflows for maximum efficiency and productivity.',
+    benefits: ['Process mapping', 'Bottleneck identification', 'Workflow redesign', 'Performance metrics'],
+  },
+  {
+    icon: GitMerge,
+    title: 'System Integration',
+    description: 'Connect disparate systems and applications for seamless data flow.',
+    benefits: ['API integration', 'Data synchronization', 'Legacy system connectivity', 'Real-time updates'],
   },
 ];
 
@@ -245,11 +267,84 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Marketing & Growth */}
-      <section id="marketing" className="section-padding scroll-mt-24">
+      {/* Business Automation */}
+      <section id="automation" className="section-padding scroll-mt-24">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <AnimatedSection animation="slide-right">
+              <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
+                Business Automation
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                Streamline Your Operations
+              </h2>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Streamlining workflows and automating business processes to improve efficiency 
+                and reduce operational costs. Our automation solutions help you focus on what 
+                matters most—growing your business.
+              </p>
+              <div className="flex items-center gap-4 p-4 bg-accent/10 rounded-xl mb-6">
+                <Zap className="w-8 h-8 text-accent" />
+                <div>
+                  <h4 className="font-semibold text-foreground">Boost Productivity</h4>
+                  <p className="text-sm text-muted-foreground">Reduce manual tasks by up to 80%</p>
+                </div>
+              </div>
+              <Button asChild>
+                <Link to="/contact">
+                  Automate Your Business <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-left">
+              <img
+                src={automationImg}
+                alt="Business automation and workflow optimization"
+                className="rounded-2xl shadow-prominent w-full"
+              />
+            </AnimatedSection>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {automationServices.map((service, index) => (
+              <AnimatedSection key={service.title} animation="fade-up" delay={index * 100}>
+                <div className="card-elevated p-6 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
+                    <service.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.benefits.map((benefit) => (
+                      <li key={benefit} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing & Growth */}
+      <section id="marketing" className="section-padding bg-muted scroll-mt-24">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            <AnimatedSection animation="slide-left" className="order-2 lg:order-1">
+              <img
+                src={marketingImg}
+                alt="Marketing team analyzing data"
+                className="rounded-2xl shadow-prominent w-full"
+              />
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-right" className="order-1 lg:order-2">
               <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
                 Marketing & Growth
               </span>
@@ -267,20 +362,12 @@ export default function ServicesPage() {
                 </Link>
               </Button>
             </AnimatedSection>
-
-            <AnimatedSection animation="slide-left">
-              <img
-                src={marketingImg}
-                alt="Marketing team analyzing data"
-                className="rounded-2xl shadow-prominent w-full"
-              />
-            </AnimatedSection>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {marketingServices.map((service, index) => (
               <AnimatedSection key={service.title} animation="fade-up" delay={index * 75}>
-                <div className="card-elevated p-6 h-full">
+                <div className="bg-background rounded-xl p-6 shadow-soft h-full">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                     <service.icon className="w-6 h-6 text-accent" />
                   </div>
