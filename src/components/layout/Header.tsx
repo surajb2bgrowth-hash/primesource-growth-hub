@@ -44,9 +44,9 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft py-3'
+          ? 'bg-background/80 backdrop-blur-xl shadow-soft border-b border-border/50 py-3'
           : 'bg-transparent py-5'
       )}
     >
@@ -57,12 +57,12 @@ export default function Header() {
             <img 
               src={isScrolled ? logoLight : logoDark} 
               alt="PrimeSource IT Consulting" 
-              className="h-10 md:h-12 w-auto transition-all duration-300"
+              className="h-9 md:h-11 w-auto transition-all duration-300"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div
                 key={item.label}
@@ -73,9 +73,11 @@ export default function Header() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-1 font-medium transition-colors hover:text-accent",
-                    isScrolled ? "text-foreground" : "text-primary-foreground",
-                    location.pathname === item.href && "text-accent"
+                    "flex items-center gap-1 px-4 py-2 rounded-full font-medium text-sm transition-all duration-300",
+                    isScrolled 
+                      ? "text-foreground hover:text-accent hover:bg-accent/10" 
+                      : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10",
+                    location.pathname === item.href && (isScrolled ? "text-accent bg-accent/10" : "bg-primary-foreground/10")
                   )}
                 >
                   {item.label}
@@ -84,12 +86,12 @@ export default function Header() {
                 
                 {item.children && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-2 animate-fade-in">
-                    <div className="bg-card rounded-xl shadow-elevated border border-border p-2 min-w-[200px]">
+                    <div className="bg-card/95 backdrop-blur-xl rounded-2xl shadow-prominent border border-border/50 p-2 min-w-[220px]">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           to={child.href}
-                          className="block px-4 py-2 rounded-lg text-sm text-foreground hover:bg-muted transition-colors"
+                          className="block px-4 py-2.5 rounded-xl text-sm text-foreground hover:bg-accent/10 hover:text-accent transition-all duration-200"
                         >
                           {child.label}
                         </Link>
@@ -103,43 +105,54 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild variant={isScrolled ? "default" : "heroOutline"}>
+            <Button 
+              asChild 
+              className={cn(
+                "rounded-full px-6 transition-all duration-300",
+                isScrolled 
+                  ? "bg-accent hover:bg-accent/90 text-accent-foreground" 
+                  : "bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/20"
+              )}
+            >
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className={cn(
+              "lg:hidden p-2 rounded-xl transition-colors",
+              isScrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground hover:bg-primary-foreground/10"
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={cn("w-6 h-6", isScrolled ? "text-foreground" : "text-primary-foreground")} />
+              <X className="w-6 h-6" />
             ) : (
-              <Menu className={cn("w-6 h-6", isScrolled ? "text-foreground" : "text-primary-foreground")} />
+              <Menu className="w-6 h-6" />
             )}
           </button>
         </nav>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-elevated animate-fade-in">
-            <div className="container-custom py-6 flex flex-col gap-4">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-card/95 backdrop-blur-xl border-b border-border shadow-prominent animate-fade-in">
+            <div className="container-custom py-6 flex flex-col gap-2">
               {navItems.map((item) => (
                 <div key={item.label}>
                   <Link
                     to={item.href}
-                    className="block py-2 font-medium text-foreground hover:text-accent transition-colors"
+                    className="block py-3 px-4 rounded-xl font-medium text-foreground hover:text-accent hover:bg-accent/10 transition-all"
                   >
                     {item.label}
                   </Link>
                   {item.children && (
-                    <div className="pl-4 mt-2 flex flex-col gap-2">
+                    <div className="pl-4 mt-1 flex flex-col gap-1">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           to={child.href}
-                          className="block py-1 text-sm text-muted-foreground hover:text-accent transition-colors"
+                          className="block py-2 px-4 rounded-lg text-sm text-muted-foreground hover:text-accent transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -148,7 +161,7 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <Button asChild className="mt-4">
+              <Button asChild className="mt-4 rounded-full">
                 <Link to="/contact">Get Started</Link>
               </Button>
             </div>

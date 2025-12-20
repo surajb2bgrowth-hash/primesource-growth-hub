@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, MapPin } from 'lucide-react';
+import { Linkedin, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import logoDark from '@/assets/logo-dark.png';
 
 const footerLinks = {
@@ -21,34 +21,40 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-foreground text-background relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container-custom section-padding-sm relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-4">
             <Link to="/" className="inline-block mb-6">
               <img 
                 src={logoDark} 
                 alt="PrimeSource IT Consulting" 
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
-            <p className="text-primary-foreground/80 mb-6 leading-relaxed">
+            <p className="text-background/70 mb-8 leading-relaxed max-w-sm">
               End-to-end IT consulting, workforce solutions, and digital growth services 
               for startups, SMEs, and growing enterprises.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href="https://www.linkedin.com/company/primesource-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                className="w-11 h-11 rounded-xl bg-background/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="mailto:info@primesourceitc.com"
-                className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                className="w-11 h-11 rounded-xl bg-background/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 group"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -56,16 +62,17 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="font-display font-semibold text-lg mb-6">Services</h4>
             <ul className="flex flex-col gap-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-background/60 hover:text-accent text-sm transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -73,16 +80,17 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="font-display font-semibold text-lg mb-6">Company</h4>
             <ul className="flex flex-col gap-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-background/60 hover:text-accent text-sm transition-colors inline-flex items-center gap-1 group"
                   >
                     {link.label}
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -90,41 +98,42 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="lg:col-span-4">
             <h4 className="font-display font-semibold text-lg mb-6">Contact Us</h4>
-            <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-accent" />
-                <span className="text-primary-foreground/70 text-sm leading-relaxed">
+            <div className="space-y-4">
+              <a 
+                href="mailto:info@primesourceitc.com"
+                className="flex items-center gap-3 text-background/60 hover:text-accent transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <span className="text-sm">info@primesourceitc.com</span>
+              </a>
+              <div className="flex items-start gap-3 text-background/60">
+                <div className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <span className="text-sm leading-relaxed">
                   4th Floor, Bizness Square Junction,<br />
-                  Opposite Hitex Road, Jubilee Enclave,<br />
                   HITEC City, Madhapur,<br />
-                  Hyderabad, Telangana – 500081, India
+                  Hyderabad, Telangana – 500081
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 flex-shrink-0 text-accent" />
-                <a
-                  href="mailto:info@primesourceitc.com"
-                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                >
-                  info@primesourceitc.com
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/60 text-sm">
+        <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-background/50 text-sm">
             © {new Date().getFullYear()} PrimeSource IT Consulting. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+            <Link to="/privacy" className="text-background/50 hover:text-accent text-sm transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-primary-foreground/60 hover:text-primary-foreground text-sm transition-colors">
+            <Link to="/terms" className="text-background/50 hover:text-accent text-sm transition-colors">
               Terms of Service
             </Link>
           </div>
