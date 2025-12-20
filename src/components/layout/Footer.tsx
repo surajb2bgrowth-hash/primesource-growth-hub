@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Mail, MapPin } from 'lucide-react';
+import logoDark from '@/assets/logo-dark.png';
 
 const footerLinks = {
   services: [
     { label: 'IT Staffing', href: '/services#workforce' },
     { label: 'Web Development', href: '/services#technology' },
-    { label: 'Mobile Apps', href: '/services#technology' },
+    { label: 'Business Automation', href: '/services#automation' },
     { label: 'Digital Marketing', href: '/services#marketing' },
     { label: 'SEO Services', href: '/services#marketing' },
   ],
@@ -25,11 +26,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/20 flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">P</span>
-              </div>
-              <span className="font-display font-bold text-xl">PrimeSource</span>
+            <Link to="/" className="inline-block mb-6">
+              <img 
+                src={logoDark} 
+                alt="PrimeSource IT Consulting" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               End-to-end IT consulting, workforce solutions, and digital growth services 
