@@ -287,6 +287,55 @@
     background-size: 200% 200%;
   }
 
+  /* Hero H1 staggered animations */
+  .animate-hero-line {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroLineIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-hero-line-1 { animation-delay: 0.1s; }
+  .animate-hero-line-2 { animation-delay: 0.25s; }
+  .animate-hero-line-3 { animation-delay: 0.4s; }
+
+  /* Gradient text with animated glow */
+  .gradient-solutions {
+    background: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(190 90% 50%) 50%, hsl(217 91% 60%) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 4s ease-in-out infinite, heroLineIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+    display: inline-block;
+  }
+
+  .gradient-solutions::after {
+    content: '';
+    position: absolute;
+    inset: -4px -8px;
+    background: linear-gradient(135deg, hsl(217 91% 60% / 0.3) 0%, hsl(190 90% 50% / 0.2) 100%);
+    filter: blur(20px);
+    border-radius: 8px;
+    opacity: 0;
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+    z-index: -1;
+  }
+
+  /* Hover micro-interaction for H1 */
+  .hero-heading-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  }
+
+  .hero-heading-hover:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+  }
+
   .animation-delay-100 { animation-delay: 100ms; }
   .animation-delay-200 { animation-delay: 200ms; }
   .animation-delay-300 { animation-delay: 300ms; }
@@ -364,6 +413,27 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes heroLineIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
 }
 
 /* Scrollbar styling */
