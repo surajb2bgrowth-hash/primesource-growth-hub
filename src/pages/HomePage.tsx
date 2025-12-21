@@ -98,16 +98,20 @@ export default function HomePage() {
                 </div>
               </AnimatedSection>
               
-              <AnimatedSection animation="fade-up" delay={100}>
+              <div className="hero-heading-hover cursor-default">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground leading-[1.1] mb-8">
-                  End-to-End IT,
-                  <br />
-                  Workforce & Digital
-                  <br />
-                  Growth{' '}
-                  <span className="text-accent">Solutions</span>
+                  <span className="block animate-hero-line animate-hero-line-1">
+                    End-to-End IT,
+                  </span>
+                  <span className="block animate-hero-line animate-hero-line-2">
+                    Workforce & Digital
+                  </span>
+                  <span className="block">
+                    <span className="animate-hero-line animate-hero-line-3 inline-block">Growth</span>{' '}
+                    <span className="gradient-solutions">Solutions</span>
+                  </span>
                 </h1>
-              </AnimatedSection>
+              </div>
               
               <AnimatedSection animation="fade-up" delay={200}>
                 <p className="text-lg md:text-xl text-primary-foreground/70 mb-10 leading-relaxed max-w-xl">
