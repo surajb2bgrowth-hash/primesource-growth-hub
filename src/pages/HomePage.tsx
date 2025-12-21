@@ -16,7 +16,6 @@ const services = [
     description: 'IT & Non-IT staffing with flexible engagement models to build your dream team.',
     image: staffingImg,
     href: '/services#workforce',
-    color: 'from-blue-500 to-blue-700',
   },
   {
     icon: Code,
@@ -24,7 +23,6 @@ const services = [
     description: 'Custom web & mobile development with modern tech stack and intuitive UI/UX.',
     image: techImg,
     href: '/services#technology',
-    color: 'from-indigo-500 to-purple-600',
   },
   {
     icon: Cog,
@@ -32,7 +30,6 @@ const services = [
     description: 'Streamline operations with intelligent workflow automation solutions.',
     image: automationImg,
     href: '/services#automation',
-    color: 'from-cyan-500 to-blue-600',
   },
   {
     icon: TrendingUp,
@@ -40,7 +37,6 @@ const services = [
     description: 'Data-driven digital marketing to accelerate your business growth.',
     image: marketingImg,
     href: '/services#marketing',
-    color: 'from-emerald-500 to-teal-600',
   },
 ];
 
@@ -233,11 +229,12 @@ export default function HomePage() {
                         alt={service.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-60 group-hover:opacity-70 transition-opacity`} />
+                      {/* Subtle dark overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-foreground/10 group-hover:from-foreground/50 transition-all" />
                       
                       {/* Icon Badge */}
-                      <div className="absolute top-6 left-6 w-14 h-14 rounded-2xl bg-background/20 backdrop-blur-sm flex items-center justify-center border border-primary-foreground/20">
-                        <service.icon className="w-7 h-7 text-primary-foreground" />
+                      <div className="absolute top-6 left-6 w-14 h-14 rounded-2xl bg-background/90 backdrop-blur-sm flex items-center justify-center border border-border/50 shadow-lg">
+                        <service.icon className="w-7 h-7 text-accent" />
                       </div>
                     </div>
                     

@@ -8,6 +8,7 @@ import staffingImg from '@/assets/staffing-solutions.jpg';
 import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
 import automationImg from '@/assets/business-automation.jpg';
+import servicesHeroImg from '@/assets/services-hero.jpg';
 
 const workforceServices = [
   {
@@ -193,21 +194,34 @@ export default function ServicesPage() {
         <div className="absolute inset-0 hero-pattern" />
         
         <div className="container-custom relative z-10 pt-32 pb-20">
-          <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 mb-8">
-              <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-primary-foreground/90 text-sm font-medium">Our Services</span>
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground leading-[1.1] mb-8">
-              Solutions That
-              <span className="block gradient-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500">
-                Drive Results
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection animation="fade-up">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 backdrop-blur-sm border border-accent/30 mb-8">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span className="text-primary-foreground/90 text-sm font-medium">Our Services</span>
               </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/70 leading-relaxed max-w-2xl mx-auto">
-              Comprehensive services tailored to your unique business needs.
-            </p>
-          </AnimatedSection>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground leading-[1.1] mb-8">
+                Solutions That
+                <span className="block text-accent">
+                  Drive Results
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-primary-foreground/70 leading-relaxed max-w-xl">
+                Comprehensive services tailored to your unique business needs.
+              </p>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="scale-in" delay={200} className="hidden lg:block">
+              <div className="relative">
+                <img
+                  src={servicesHeroImg}
+                  alt="Professional team meeting"
+                  className="rounded-3xl shadow-2xl border border-primary-foreground/10"
+                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/20 to-transparent" />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
