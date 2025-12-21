@@ -19,7 +19,14 @@ const navItems = [
       { label: 'Marketing & Growth', href: '/services#marketing' },
     ]
   },
-  { label: 'Resources', href: '/resources' },
+  { 
+    label: 'Resources', 
+    href: '/blogs',
+    children: [
+      { label: 'Blogs', href: '/blogs' },
+      { label: 'Case Studies', href: '/case-studies' },
+    ]
+  },
   { label: 'Contact', href: '/contact' },
 ];
 
