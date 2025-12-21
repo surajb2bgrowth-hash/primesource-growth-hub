@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Code, TrendingUp, CheckCircle, Building2, ShoppingCart, Briefcase, Heart, Landmark, Factory, Cog, Sparkles, Zap, Shield, Globe, ArrowUpRight, Check } from 'lucide-react';
+import { ArrowRight, Users, Code, TrendingUp, CheckCircle, Building2, ShoppingCart, Briefcase, Heart, Landmark, Factory, Cog, Sparkles, Zap, Shield, Globe, ArrowUpRight, Check, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import MouseTrail from '@/components/effects/MouseTrail';
 import staffingImg from '@/assets/staffing-solutions.jpg';
 import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
 import automationImg from '@/assets/business-automation.jpg';
 import heroImg from '@/assets/hero-bg.jpg';
-
 const services = [
   {
     icon: Users,
@@ -59,22 +59,30 @@ const industries = [
 export default function HomePage() {
   return (
     <Layout>
+      {/* Mouse Trail Effect */}
+      <MouseTrail />
+      
       {/* Hero Section - Two Column Layout */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
+        {/* Background - Lighter navy blue */}
         <div className="absolute inset-0 gradient-hero" />
         
-        {/* Cross Pattern Overlay */}
+        {/* Subtle Pattern Overlay */}
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(circle, hsla(217, 91%, 60%, 0.1) 1px, transparent 1px)
+            radial-gradient(circle at 20% 30%, hsla(217, 91%, 50%, 0.08) 0%, transparent 30%),
+            radial-gradient(circle at 80% 70%, hsla(217, 91%, 50%, 0.06) 0%, transparent 30%)
           `,
-          backgroundSize: '40px 40px'
         }} />
         
-        {/* Accent Dots */}
-        <div className="absolute top-1/4 left-1/2 w-3 h-3 rounded-full bg-accent animate-pulse" />
-        <div className="absolute top-20 right-1/3 w-2 h-2 rounded-full bg-accent/60" />
+        {/* Grid Lines - subtle */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `
+            linear-gradient(hsla(217, 91%, 60%, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, hsla(217, 91%, 60%, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }} />
         
         {/* Content */}
         <div className="container-custom relative z-10 pt-32 pb-20">
@@ -82,9 +90,9 @@ export default function HomePage() {
             {/* Left Column - Text Content */}
             <div className="order-2 lg:order-1">
               <AnimatedSection animation="fade-up">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur-sm mb-8">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-primary-foreground/90 text-sm font-medium">
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/10 backdrop-blur-sm mb-8 border border-primary-foreground/10">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="text-primary-foreground text-sm font-medium">
                     Trusted by 50+ Global Enterprises
                   </span>
                 </div>
@@ -117,9 +125,12 @@ export default function HomePage() {
                       <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent">
-                    <Link to="/services">
-                      Explore Services
+                  <Button asChild size="lg" variant="ghost" className="rounded-full px-8 text-primary-foreground hover:bg-primary-foreground/10 group">
+                    <Link to="/services" className="flex items-center gap-3">
+                      <span className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center group-hover:border-primary-foreground/50 transition-colors">
+                        <Play className="w-4 h-4 ml-0.5" />
+                      </span>
+                      Learn More
                     </Link>
                   </Button>
                 </div>
@@ -131,67 +142,40 @@ export default function HomePage() {
               <AnimatedSection animation="scale-in" delay={200}>
                 <div className="relative">
                   {/* Main Image */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-primary-foreground/10">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
                       src={heroImg}
                       alt="Team collaboration at PrimeSource IT Consulting"
                       className="w-full h-auto object-cover aspect-[4/3]"
                     />
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                   </div>
                   
                   {/* Floating Stats Card */}
-                  <div className="absolute -bottom-6 -left-6 md:bottom-8 md:-left-12 bg-background rounded-xl shadow-xl p-4 border border-border/50 animate-float">
+                  <div className="absolute -bottom-6 right-6 md:bottom-8 md:right-8 bg-foreground/90 backdrop-blur-sm rounded-xl shadow-xl p-4 border border-border/20">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-                        <Check className="w-5 h-5 text-accent" />
+                      <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                        <Check className="w-5 h-5 text-accent-foreground" />
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-foreground">98% Client Satisfaction</div>
-                        <div className="text-xs text-muted-foreground">Based on client feedback</div>
+                        <div className="text-sm font-semibold text-background">98% Client Satisfaction</div>
+                        <div className="text-xs text-background/60">Based on 500+ reviews</div>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent/20 rounded-full blur-xl" />
-                  <div className="absolute -bottom-8 right-1/4 w-16 h-16 bg-accent/30 rounded-full blur-lg" />
                 </div>
               </AnimatedSection>
             </div>
           </div>
           
-          {/* Bottom Stats Row */}
+          {/* Trusted by section */}
           <AnimatedSection animation="fade-up" delay={500}>
-            <div className="flex flex-wrap justify-start gap-8 md:gap-16 mt-16 pt-12 border-t border-primary-foreground/10">
-              <div className="flex items-center gap-3">
-                <CheckCircle className="w-6 h-6 text-accent" />
-                <div>
-                  <div className="text-2xl font-bold text-primary-foreground">10+</div>
-                  <div className="text-sm text-primary-foreground/60">Projects Delivered</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Users className="w-6 h-6 text-accent" />
-                <div>
-                  <div className="text-2xl font-bold text-primary-foreground">Skilled</div>
-                  <div className="text-sm text-primary-foreground/60">Expert Team</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Shield className="w-6 h-6 text-accent" />
-                <div>
-                  <div className="text-2xl font-bold text-primary-foreground">24/7</div>
-                  <div className="text-sm text-primary-foreground/60">Support Available</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Globe className="w-6 h-6 text-accent" />
-                <div>
-                  <div className="text-2xl font-bold text-primary-foreground">Global</div>
-                  <div className="text-sm text-primary-foreground/60">Service Reach</div>
-                </div>
+            <div className="mt-20 pt-10 border-t border-primary-foreground/10">
+              <p className="text-sm text-primary-foreground/50 mb-6">Trusted by industry leaders</p>
+              <div className="flex flex-wrap gap-8 md:gap-12 items-center">
+                <span className="text-primary-foreground/60 text-sm font-medium">Fortune 500</span>
+                <span className="text-primary-foreground/60 text-sm font-medium">Tech Giants</span>
+                <span className="text-primary-foreground/60 text-sm font-medium">Startups</span>
+                <span className="text-primary-foreground/60 text-sm font-medium">SMEs</span>
               </div>
             </div>
           </AnimatedSection>
