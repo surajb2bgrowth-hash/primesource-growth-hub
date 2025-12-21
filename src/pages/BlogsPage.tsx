@@ -7,6 +7,7 @@ import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
 import staffingImg from '@/assets/staffing-solutions.jpg';
 import automationImg from '@/assets/business-automation.jpg';
+import blogHeroImg from '@/assets/blog-hero.jpg';
 
 const blogPosts = [
   {
@@ -80,18 +81,31 @@ export default function BlogsPage() {
       <section className="relative min-h-[50vh] flex items-center gradient-hero">
         <div className="absolute inset-0 hero-pattern" />
         <div className="container-custom relative z-10 pt-32 pb-20">
-          <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground/90 text-sm font-medium mb-6 backdrop-blur-sm">
-              Blog
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
-              Insights & Industry Trends
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
-              Stay informed with our latest articles on IT staffing, technology development, 
-              and digital marketing best practices.
-            </p>
-          </AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection animation="fade-up">
+              <span className="inline-block px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground/90 text-sm font-medium mb-6 backdrop-blur-sm">
+                Blog
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight mb-6">
+                Insights & Industry Trends
+              </h1>
+              <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
+                Stay informed with our latest articles on IT staffing, technology development, 
+                and digital marketing best practices.
+              </p>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="scale-in" delay={200} className="hidden lg:block">
+              <div className="relative">
+                <img
+                  src={blogHeroImg}
+                  alt="Content creation workspace"
+                  className="rounded-3xl shadow-2xl border border-primary-foreground/10"
+                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/20 to-transparent" />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
