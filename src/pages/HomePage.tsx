@@ -115,7 +115,7 @@ export default function HomePage() {
               
               <AnimatedSection animation="fade-up" delay={200}>
                 <p className="text-lg md:text-xl text-primary-foreground/70 mb-10 leading-relaxed max-w-xl">
-                  PrimeSource IT Consulting delivers comprehensive IT staffing, 
+                  PrimeSource IT Service and Consulting delivers comprehensive IT staffing, 
                   software development, and performance marketing services that 
                   drive measurable business outcomes.
                 </p>
@@ -149,7 +149,7 @@ export default function HomePage() {
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <img
                       src={heroImg}
-                      alt="Team collaboration at PrimeSource IT Consulting"
+                      alt="Team collaboration at PrimeSource IT Service and Consulting"
                       className="w-full h-auto object-cover aspect-[4/3]"
                     />
                   </div>
@@ -258,7 +258,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection animation="slide-right">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-semibold mb-6">
-                Why PrimeSource
+                Why PrimeSource IT Service and Consulting
               </span>
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
                 Your Partner for
@@ -336,7 +336,7 @@ export default function HomePage() {
               <span className="block">Your Business?</span>
             </h2>
             <p className="text-xl text-primary-foreground/70 mb-12 max-w-2xl mx-auto">
-              Let's discuss how PrimeSource can help you achieve your IT, staffing, 
+              Let's discuss how PrimeSource IT Service and Consulting can help you achieve your IT, staffing, 
               and digital growth objectives.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
