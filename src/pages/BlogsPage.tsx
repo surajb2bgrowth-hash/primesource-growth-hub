@@ -13,7 +13,7 @@ const blogPosts = [
   {
     title: 'Top 5 IT Staffing Trends to Watch in 2025',
     excerpt: 'Discover the emerging trends shaping IT recruitment and workforce solutions. Learn how businesses can stay ahead in talent acquisition.',
-    author: 'PrimeSource Team',
+    author: 'PrimeSource IT Service and Consulting Team',
     date: 'December 15, 2024',
     readTime: '5 min read',
     image: staffingImg,
@@ -23,7 +23,7 @@ const blogPosts = [
   {
     title: 'How to Choose the Right Technology Partner for Your Startup',
     excerpt: 'A comprehensive guide to evaluating and selecting a technology development partner that aligns with your business goals.',
-    author: 'PrimeSource Team',
+    author: 'PrimeSource IT Service and Consulting Team',
     date: 'December 10, 2024',
     readTime: '7 min read',
     image: techImg,
@@ -33,7 +33,7 @@ const blogPosts = [
   {
     title: 'Digital Marketing Strategies That Drive B2B Growth',
     excerpt: 'Explore proven digital marketing approaches that help B2B companies generate leads and build brand awareness.',
-    author: 'PrimeSource Team',
+    author: 'PrimeSource IT Service and Consulting Team',
     date: 'December 5, 2024',
     readTime: '6 min read',
     image: marketingImg,
@@ -43,7 +43,7 @@ const blogPosts = [
   {
     title: 'Business Process Automation: A Complete Guide',
     excerpt: 'Learn how workflow automation can transform your operations, reduce costs, and improve efficiency across departments.',
-    author: 'PrimeSource Team',
+    author: 'PrimeSource IT Service and Consulting Team',
     date: 'November 28, 2024',
     readTime: '8 min read',
     image: automationImg,

@@ -12,13 +12,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'info@primesourceitc.com',
-    href: 'mailto:info@primesourceitc.com',
+    value: 'contact@primesourceitsc.com',
+    href: 'mailto:contact@primesourceitsc.com',
   },
   {
     icon: Linkedin,
     title: 'LinkedIn',
-    value: 'PrimeSource Pvt Ltd',
+    value: 'PrimeSource IT Service and Consulting PVT LTD',
     href: 'https://www.linkedin.com/company/primesource-pvt-ltd/',
   },
   {
@@ -290,7 +290,7 @@ export default function ContactPage() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="PrimeSource Office Location"
+          title="PrimeSource IT Service and Consulting Office Location"
           className="grayscale hover:grayscale-0 transition-all duration-500"
         />
       </section>
