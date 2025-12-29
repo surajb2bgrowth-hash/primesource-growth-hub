@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, MapPin, ArrowUpRight } from 'lucide-react';
-import logoDark from '@/assets/logo-dark.png';
+import logoLight from '@/assets/logo-light.png';
 
 const footerLinks = {
   services: [
@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link to="/" className="inline-block mb-6">
               <img 
-                src={logoDark} 
+                src={logoLight} 
                 alt="PrimeSource IT Consulting" 
                 className="h-10 w-auto"
               />
