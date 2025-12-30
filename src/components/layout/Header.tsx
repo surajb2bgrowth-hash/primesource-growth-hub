@@ -63,7 +63,7 @@ export default function Header() {
           <Link to="/" className="flex items-center group">
             <img 
               src={isScrolled ? logoDark : logoLight} 
-              alt="PrimeSource IT Consulting" 
+              alt="PrimeSource IT Service and Consulting - IT Staffing, Software Development, Digital Marketing Hyderabad" 
               className="h-9 md:h-11 w-auto transition-all duration-300"
             />
           </Link>

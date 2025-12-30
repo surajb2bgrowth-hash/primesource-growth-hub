@@ -35,7 +35,7 @@ export default function Footer() {
             <Link to="/" className="inline-block mb-6">
               <img 
                 src={logoLight} 
-                alt="PrimeSource IT Consulting" 
+                alt="PrimeSource IT Service and Consulting - IT Staffing, Software Development, Digital Marketing Hyderabad" 
                 className="h-10 w-auto"
               />
             </Link>
