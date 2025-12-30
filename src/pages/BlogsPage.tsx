@@ -1,80 +1,23 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, User, Clock, ChevronRight, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import techImg from '@/assets/tech-services.jpg';
-import marketingImg from '@/assets/digital-marketing.jpg';
-import staffingImg from '@/assets/staffing-solutions.jpg';
-import automationImg from '@/assets/business-automation.jpg';
+import { blogPosts, categories } from '@/data/blogPosts';
 import blogHeroImg from '@/assets/blog-hero.jpg';
 
-const blogPosts = [
-  {
-    title: 'Top 5 IT Staffing Trends to Watch in 2025',
-    excerpt: 'Discover the emerging trends shaping IT recruitment and workforce solutions. Learn how businesses can stay ahead in talent acquisition.',
-    author: 'PrimeSource IT Service and Consulting Team',
-    date: 'December 15, 2024',
-    readTime: '5 min read',
-    image: staffingImg,
-    category: 'Workforce',
-    slug: 'it-staffing-trends-2025',
-  },
-  {
-    title: 'How to Choose the Right Technology Partner for Your Startup',
-    excerpt: 'A comprehensive guide to evaluating and selecting a technology development partner that aligns with your business goals.',
-    author: 'PrimeSource IT Service and Consulting Team',
-    date: 'December 10, 2024',
-    readTime: '7 min read',
-    image: techImg,
-    category: 'Technology',
-    slug: 'choosing-technology-partner',
-  },
-  {
-    title: 'Digital Marketing Strategies That Drive B2B Growth',
-    excerpt: 'Explore proven digital marketing approaches that help B2B companies generate leads and build brand awareness.',
-    author: 'PrimeSource IT Service and Consulting Team',
-    date: 'December 5, 2024',
-    readTime: '6 min read',
-    image: marketingImg,
-    category: 'Marketing',
-    slug: 'b2b-digital-marketing-strategies',
-  },
-  {
-    title: 'Business Process Automation: A Complete Guide',
-    excerpt: 'Learn how workflow automation can transform your operations, reduce costs, and improve efficiency across departments.',
-    author: 'PrimeSource IT Service and Consulting Team',
-    date: 'November 28, 2024',
-    readTime: '8 min read',
-    image: automationImg,
-    category: 'Automation',
-    slug: 'business-process-automation-guide',
-  },
-  {
-    title: 'Building Scalable Web Applications in 2024',
-    excerpt: 'Best practices for developing web applications that can handle growth while maintaining performance and reliability.',
-    author: 'PrimeSource Team',
-    date: 'November 20, 2024',
-    readTime: '6 min read',
-    image: techImg,
-    category: 'Technology',
-    slug: 'scalable-web-applications',
-  },
-  {
-    title: 'The Future of Remote IT Teams',
-    excerpt: 'How companies are successfully building and managing distributed technology teams in the modern workplace.',
-    author: 'PrimeSource Team',
-    date: 'November 15, 2024',
-    readTime: '5 min read',
-    image: staffingImg,
-    category: 'Workforce',
-    slug: 'future-remote-it-teams',
-  },
-];
-
-const categories = ['All', 'Workforce', 'Technology', 'Marketing', 'Automation'];
-
 export default function BlogsPage() {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -99,7 +42,7 @@ export default function BlogsPage() {
               <div className="relative">
                 <img
                   src={blogHeroImg}
-                  alt="Content creation workspace"
+                  alt="PrimeSource IT Service and Consulting blog content creation workspace"
                   className="rounded-3xl shadow-2xl border border-primary-foreground/10"
                 />
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/20 to-transparent" />
@@ -117,8 +60,9 @@ export default function BlogsPage() {
               {categories.map((category) => (
                 <button
                   key={category}
+                  onClick={() => setActiveCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    category === 'All'
+                    category === activeCategory
                       ? 'bg-accent text-accent-foreground'
                       : 'bg-muted text-muted-foreground hover:bg-accent/10 hover:text-accent'
                   }`}
@@ -132,6 +76,8 @@ export default function BlogsPage() {
               <input
                 type="text"
                 placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 pr-4 py-2 rounded-full bg-muted border border-border text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 w-64"
               />
             </div>
@@ -142,60 +88,68 @@ export default function BlogsPage() {
       {/* Blog Posts Grid */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <AnimatedSection key={post.slug} animation="fade-up" delay={index * 100}>
-                <article className="card-elevated overflow-hidden h-full flex flex-col group">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium">
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="w-4 h-4" />
-                        {post.date}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4" />
-                        {post.readTime}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-display font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4 flex-grow line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <User className="w-4 h-4" />
-                        {post.author}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-accent font-medium text-sm hover:gap-2 transition-all cursor-pointer">
-                        Read More <ChevronRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="rounded-full px-8">
-              Load More Articles
-            </Button>
-          </div>
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">No articles found matching your criteria.</p>
+              <Button 
+                variant="outline" 
+                className="mt-4 rounded-full"
+                onClick={() => { setActiveCategory('All'); setSearchQuery(''); }}
+              >
+                Clear Filters
+              </Button>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => (
+                <AnimatedSection key={post.slug} animation="fade-up" delay={index * 100}>
+                  <Link to={`/blogs/${post.slug}`} className="block h-full">
+                    <article className="card-elevated overflow-hidden h-full flex flex-col group">
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={post.image}
+                          alt={`${post.title} - PrimeSource IT Consulting article`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium">
+                            {post.category}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-6 flex-grow flex flex-col">
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="w-4 h-4" />
+                            {post.date}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="w-4 h-4" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-display font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-accent transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-4 flex-grow line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <User className="w-4 h-4" />
+                            <span className="line-clamp-1">{post.author}</span>
+                          </span>
+                          <span className="inline-flex items-center gap-1 text-accent font-medium text-sm group-hover:gap-2 transition-all">
+                            Read More <ChevronRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
