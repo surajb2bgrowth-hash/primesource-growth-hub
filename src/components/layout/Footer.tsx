@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import logoLight from '@/assets/logo-light.png';
@@ -19,9 +20,9 @@ const footerLinks = {
   ],
 };
 
-export default function Footer() {
+const Footer = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
+    <footer ref={ref} className="bg-foreground text-background relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
@@ -141,4 +142,8 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+Footer.displayName = 'Footer';
+
+export default Footer;
