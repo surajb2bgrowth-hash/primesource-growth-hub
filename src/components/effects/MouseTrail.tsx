@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 
 interface Point {
   x: number;
@@ -6,7 +6,7 @@ interface Point {
   age: number;
 }
 
-export default function MouseTrail() {
+const MouseTrail = forwardRef<HTMLCanvasElement>((_, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const points = useRef<Point[]>([]);
   const mousePos = useRef({ x: 0, y: 0 });
@@ -115,4 +115,8 @@ export default function MouseTrail() {
       style={{ mixBlendMode: 'screen' }}
     />
   );
-}
+});
+
+MouseTrail.displayName = 'MouseTrail';
+
+export default MouseTrail;
