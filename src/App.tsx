@@ -12,6 +12,14 @@ import CaseStudiesPage from "./pages/CaseStudiesPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
+// Admin Pages
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminBlogs from "./pages/admin/AdminBlogs";
+import AdminServices from "./pages/admin/AdminServices";
+import AdminCaseStudies from "./pages/admin/AdminCaseStudies";
+import AdminContacts from "./pages/admin/AdminContacts";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -29,6 +37,15 @@ function App() {
             <Route path="/blogs/:slug" element={<BlogPostPage />} />
             <Route path="/case-studies" element={<CaseStudiesPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            
+            {/* Admin Routes - Hidden from public navigation */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/blogs" element={<AdminBlogs />} />
+            <Route path="/admin/services" element={<AdminServices />} />
+            <Route path="/admin/case-studies" element={<AdminCaseStudies />} />
+            <Route path="/admin/contacts" element={<AdminContacts />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
