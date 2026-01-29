@@ -8,7 +8,7 @@ import staffingImg from '@/assets/staffing-solutions.jpg';
 import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
 import automationImg from '@/assets/business-automation.jpg';
-import heroImg from '@/assets/hero-bg.jpg';
+import heroImg from '@/assets/primesource-hero.ico';
 const services = [{
   icon: Users,
   title: 'Workforce Solutions',
