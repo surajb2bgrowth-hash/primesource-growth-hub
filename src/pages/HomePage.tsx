@@ -101,7 +101,7 @@ export default function HomePage() {
               <div className="hero-heading-hover cursor-default">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground leading-[1.1] mb-8">
                   <span className="block animate-hero-line animate-hero-line-1">
-                    End-to-End IT,
+                    End-to-End
                   </span>
                   <span className="block animate-hero-line animate-hero-line-2">
                     Workforce & Digital
