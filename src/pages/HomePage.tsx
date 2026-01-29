@@ -121,7 +121,7 @@ export default function HomePage() {
                     Digital Growth
                   </span>
                   <span className="block">
-                    <span className="gradient-solutions">   Solutions</span>
+                    <span className="gradient-solutions">     Solutions</span>
                   </span>
                 </h1>
               </div>
