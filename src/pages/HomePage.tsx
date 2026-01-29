@@ -9,56 +9,69 @@ import techImg from '@/assets/tech-services.jpg';
 import marketingImg from '@/assets/digital-marketing.jpg';
 import automationImg from '@/assets/business-automation.jpg';
 import heroImg from '@/assets/hero-bg.jpg';
-const services = [
-  {
-    icon: Users,
-    title: 'Workforce Solutions',
-    description: 'IT & Non-IT staffing with flexible engagement models to build your dream team.',
-    image: staffingImg,
-    href: '/services#workforce',
-  },
-  {
-    icon: Code,
-    title: 'Technology Services',
-    description: 'Custom web & mobile development with modern tech stack and intuitive UI/UX.',
-    image: techImg,
-    href: '/services#technology',
-  },
-  {
-    icon: Cog,
-    title: 'Business Automation',
-    description: 'Streamline operations with intelligent workflow automation solutions.',
-    image: automationImg,
-    href: '/services#automation',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Marketing & Growth',
-    description: 'Data-driven digital marketing to accelerate your business growth.',
-    image: marketingImg,
-    href: '/services#marketing',
-  },
-];
-
-const features = [
-  { icon: Sparkles, title: 'Expert Team', description: 'Skilled professionals with deep domain expertise' },
-  { icon: Zap, title: 'Fast Delivery', description: 'Agile processes for quick turnaround times' },
-  { icon: Shield, title: 'Quality First', description: 'Rigorous standards for every deliverable' },
-  { icon: Globe, title: 'Scalable Solutions', description: 'Services that grow with your business' },
-];
-
-const industries = [
-  { icon: Building2, name: 'Technology' },
-  { icon: ShoppingCart, name: 'E-Commerce' },
-  { icon: Briefcase, name: 'Consulting' },
-  { icon: Heart, name: 'Healthcare' },
-  { icon: Landmark, name: 'Finance' },
-  { icon: Factory, name: 'Manufacturing' },
-];
-
+const services = [{
+  icon: Users,
+  title: 'Workforce Solutions',
+  description: 'IT & Non-IT staffing with flexible engagement models to build your dream team.',
+  image: staffingImg,
+  href: '/services#workforce'
+}, {
+  icon: Code,
+  title: 'Technology Services',
+  description: 'Custom web & mobile development with modern tech stack and intuitive UI/UX.',
+  image: techImg,
+  href: '/services#technology'
+}, {
+  icon: Cog,
+  title: 'Business Automation',
+  description: 'Streamline operations with intelligent workflow automation solutions.',
+  image: automationImg,
+  href: '/services#automation'
+}, {
+  icon: TrendingUp,
+  title: 'Marketing & Growth',
+  description: 'Data-driven digital marketing to accelerate your business growth.',
+  image: marketingImg,
+  href: '/services#marketing'
+}];
+const features = [{
+  icon: Sparkles,
+  title: 'Expert Team',
+  description: 'Skilled professionals with deep domain expertise'
+}, {
+  icon: Zap,
+  title: 'Fast Delivery',
+  description: 'Agile processes for quick turnaround times'
+}, {
+  icon: Shield,
+  title: 'Quality First',
+  description: 'Rigorous standards for every deliverable'
+}, {
+  icon: Globe,
+  title: 'Scalable Solutions',
+  description: 'Services that grow with your business'
+}];
+const industries = [{
+  icon: Building2,
+  name: 'Technology'
+}, {
+  icon: ShoppingCart,
+  name: 'E-Commerce'
+}, {
+  icon: Briefcase,
+  name: 'Consulting'
+}, {
+  icon: Heart,
+  name: 'Healthcare'
+}, {
+  icon: Landmark,
+  name: 'Finance'
+}, {
+  icon: Factory,
+  name: 'Manufacturing'
+}];
 export default function HomePage() {
-  return (
-    <Layout>
+  return <Layout>
       {/* Mouse Trail Effect */}
       <MouseTrail />
       
@@ -69,20 +82,20 @@ export default function HomePage() {
         
         {/* Subtle Pattern Overlay */}
         <div className="absolute inset-0" style={{
-          backgroundImage: `
+        backgroundImage: `
             radial-gradient(circle at 20% 30%, hsla(217, 91%, 50%, 0.08) 0%, transparent 30%),
             radial-gradient(circle at 80% 70%, hsla(217, 91%, 50%, 0.06) 0%, transparent 30%)
-          `,
-        }} />
+          `
+      }} />
         
         {/* Grid Lines - subtle */}
         <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `
+        backgroundImage: `
             linear-gradient(hsla(217, 91%, 60%, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, hsla(217, 91%, 60%, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '80px 80px'
-        }} />
+        backgroundSize: '80px 80px'
+      }} />
         
         {/* Content */}
         <div className="container-custom relative z-10 pt-32 pb-20">
@@ -100,9 +113,7 @@ export default function HomePage() {
               
               <div className="hero-heading-hover cursor-default">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground leading-[1.1] mb-8">
-                  <span className="block animate-hero-line animate-hero-line-1">
-                    End-to-End
-                  </span>
+                  <span className="block animate-hero-line animate-hero-line-1">   End-to-End</span>
                   <span className="block animate-hero-line animate-hero-line-2">
                     IT, Workforce &
                   </span>
@@ -110,7 +121,7 @@ export default function HomePage() {
                     Digital Growth
                   </span>
                   <span className="block">
-                    <span className="gradient-solutions">Solutions</span>
+                    <span className="gradient-solutions">   Solutions</span>
                   </span>
                 </h1>
               </div>
@@ -149,11 +160,7 @@ export default function HomePage() {
                 <div className="relative">
                   {/* Main Image */}
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img
-                      src={heroImg}
-                      alt="Team collaboration at PrimeSource IT Service and Consulting"
-                      className="w-full h-auto object-cover aspect-[4/3]"
-                    />
+                    <img src={heroImg} alt="Team collaboration at PrimeSource IT Service and Consulting" className="w-full h-auto object-cover aspect-[4/3]" />
                   </div>
                   
                 </div>
@@ -196,17 +203,12 @@ export default function HomePage() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {services.map((service, index) => (
-              <AnimatedSection key={service.title} animation="fade-up" delay={index * 100}>
+            {services.map((service, index) => <AnimatedSection key={service.title} animation="fade-up" delay={index * 100}>
                 <Link to={service.href} className="group block h-full">
                   <div className="relative h-full rounded-3xl overflow-hidden bg-card border border-border/50 hover:border-accent/30 transition-all duration-500 hover:shadow-prominent">
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                       {/* Subtle dark overlay for text readability */}
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-foreground/10 group-hover:from-foreground/50 transition-all" />
                       
@@ -231,8 +233,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-              </AnimatedSection>
-            ))}
+              </AnimatedSection>)}
           </div>
         </div>
       </section>
@@ -267,8 +268,7 @@ export default function HomePage() {
             </AnimatedSection>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <AnimatedSection key={feature.title} animation="scale-in" delay={index * 100}>
+              {features.map((feature, index) => <AnimatedSection key={feature.title} animation="scale-in" delay={index * 100}>
                   <div className="bg-background/5 backdrop-blur-sm rounded-2xl p-6 border border-background/10 hover:bg-background/10 transition-all duration-300 hover:-translate-y-1">
                     <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-5">
                       <feature.icon className="w-6 h-6 text-accent" />
@@ -276,8 +276,7 @@ export default function HomePage() {
                     <h4 className="text-xl font-display font-bold mb-2">{feature.title}</h4>
                     <p className="text-background/60 text-sm">{feature.description}</p>
                   </div>
-                </AnimatedSection>
-              ))}
+                </AnimatedSection>)}
             </div>
           </div>
         </div>
@@ -300,16 +299,14 @@ export default function HomePage() {
           </AnimatedSection>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {industries.map((industry, index) => (
-              <AnimatedSection key={industry.name} animation="scale-in" delay={index * 50}>
+            {industries.map((industry, index) => <AnimatedSection key={industry.name} animation="scale-in" delay={index * 50}>
                 <div className="bg-card rounded-2xl p-6 text-center border border-border/50 hover:border-accent/30 hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group cursor-pointer">
                   <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                     <industry.icon className="w-8 h-8 text-accent group-hover:text-accent-foreground transition-colors" />
                   </div>
                   <h4 className="font-semibold text-foreground text-sm">{industry.name}</h4>
                 </div>
-              </AnimatedSection>
-            ))}
+              </AnimatedSection>)}
           </div>
         </div>
       </section>
@@ -343,6 +340,5 @@ export default function HomePage() {
           </AnimatedSection>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 }
