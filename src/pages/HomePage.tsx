@@ -93,7 +93,7 @@ export default function HomePage() {
                 <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/10 backdrop-blur-sm mb-8 border border-primary-foreground/10">
                   <span className="w-2 h-2 rounded-full bg-accent" />
                   <span className="text-primary-foreground text-sm font-medium">
-                    Trusted by 50+ Global Enterprises
+                    Your Trusted IT Partner
                   </span>
                 </div>
               </AnimatedSection>
@@ -154,18 +154,6 @@ export default function HomePage() {
                     />
                   </div>
                   
-                  {/* Floating Stats Card */}
-                  <div className="absolute -bottom-6 right-6 md:bottom-8 md:right-8 bg-foreground/90 backdrop-blur-sm rounded-xl shadow-xl p-4 border border-border/20">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                        <Check className="w-5 h-5 text-accent-foreground" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-background">98% Client Satisfaction</div>
-                        <div className="text-xs text-background/60">Based on 500+ reviews</div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </AnimatedSection>
             </div>
